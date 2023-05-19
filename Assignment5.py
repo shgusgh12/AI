@@ -36,6 +36,10 @@ x_test=X[split:]; y_test=Y[split:]
 # LSTM 모델의 설계와 학습
 model = Sequential()
 model.add(LSTM(units=16,activation='relu',input_shape=x_train[0].shape))
+#model.add(LSTM(units=32,activation='relu',input_shape=x_train[0].shape))
+#model.add(LSTM(units=64,activation='relu',input_shape=x_train[0].shape))
+#model.add(LSTM(units=128,activation='relu',input_shape=x_train[0].shape))
+#model.add(LSTM(units=256,activation='relu',input_shape=x_train[0].shape))
 model.add(Dense(4))
 model.compile(loss='mae',optimizer='adam',metrics=['mae'])
 hist=model.fit(x_train,y_train,epochs=100,batch_size=1,validation_data=(x_test,y_test),verbose=2)
